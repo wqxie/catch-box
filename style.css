@@ -465,6 +465,7 @@ a:hover {
 	z-index: 21;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	height: 140px;
 }
 #site-title {
 	padding: 0;
@@ -497,6 +498,7 @@ a:hover {
 }
 #site-logo {
 	line-height: 0;
+	width: 150px;
 }
 #branding #site-logo img { margin: 0 }
 
@@ -657,14 +659,33 @@ a:hover {
 .default-menu {
 	display: none !important;
 }
-
-
+/* =Nav Bar
+----------------------------------------------- */
+.nav-bar{
+	position: absolute;
+	right: 0px;
+	top: 100px;
+}
+.nav-bar li{
+	display: inline-block;
+	color: white;
+	font-family: "Century Gothic";
+	font-size: 20px;
+	margin-left: 25px;
+}
+.nav-bar li a{
+	color: white;
+}
+.nav-bar li a:hover{
+	color: #70BDF9;
+	text-decoration: none;
+}
 /* =Search Form
 ----------------------------------------------- */
 
 #branding #searchform {
 	position: absolute;
-	top: 2.8em;
+	top: 40px;
 	right: 0;
 	text-align: right;
 }
@@ -723,8 +744,8 @@ a:hover {
 #main {
 	background-color: #eee;
 	clear: both;
-	padding: 2em 0 0;
-}
+/*	padding: 2em 0 0;
+*/}
 .page-header {
     background-color: #FFFFFF;
     border-bottom: 2px solid #CCCCCC;
@@ -2436,9 +2457,9 @@ p.comment-form-comment {
 }
 #site-generator .copyright { 
 	clear: both;
-	margin-left: 3%;
+	margin-left: 23%;
 	float: left;
-    text-align: left;
+    text-align: center;
 }
 #site-generator .powered { 
 	margin-right: 3%;
@@ -3298,3 +3319,64 @@ and (max-width: 767px) {
     padding: 2px;
     top: 0;
 }
+
+/* =Homepage block 
+----------------------------------------------- */
+
+.homepage-block{
+	position: relative;
+	margin-top: 0px;
+	height: 100%;
+	max-width: 100%;
+}
+.homepage-block #home-pic{
+	position: relative;
+	display: block;
+	opacity: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	margin: 0 0 0 0;
+	-webkit-filter: blur(2px);
+}
+.homepage-block .grey-panel{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(1,1,1,0.5);
+}
+.homepage-block #home-intro{
+	position: absolute;
+	width: 70%;
+	top: 7%;
+	left: 15%;
+}
+.homepage-block .intro{
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	height: 50%;
+}
+.homepage-block .intro .intro-box{
+	float: left;
+	width: 25%;
+	height: 80%;
+	border-radius: 5px;
+	border:1px solid white;
+	background: rgba(200,200,200,0.4);
+	margin-left: 6%;
+	color: #1982d1;
+}
+
+
+
+
+
+
+
+
+
+
+

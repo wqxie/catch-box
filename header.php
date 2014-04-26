@@ -117,11 +117,3 @@ do_action( 'catchbox_before' ); ?>
              */
             do_action( 'catchbox_before_content' ); ?>
         
-			<div id="content" role="main">
-				<?php 
-                /** 
-                 * catchbox_content hook
-                 *
-                 * @hooked catchbox_slider_display - 10
-                 */
-                do_action( 'catchbox_content' ); ?>

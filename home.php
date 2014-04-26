@@ -1,19 +1,31 @@
 <?php
 /**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * Homepage
  *
  * @package Catch Themes
  * @subpackage Catch_Box
  */
 
 get_header(); ?>            	
+<div class="homepage-block">
+	<?php echo '<img id="home-pic" src="'.get_template_directory_uri() .'/images/2.jpg"/>'?>
+	<div class="grey-panel"></div>
+	<?php echo '<img id="home-intro" src="'.get_template_directory_uri() .'/images/home-intro.png"/>'?>
+	<div class="intro">
+		<div class="intro-box"></div>
+		<div class="intro-box"></div>
+		<div class="intro-box"></div>
+	</div>
+</div>
 
-			
+            
+	</div><!-- #primary -->
+    
+	<?php 
+    /** 
+     * catchbox_after_primary hook
+     *
+     */
+    do_action( 'catchbox_after_primary' ); ?>    			
 
 <?php get_footer(); ?>

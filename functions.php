@@ -866,11 +866,10 @@ function catchbox_scripts_method() {
 	if ( is_front_page() || is_home() ) {
 		wp_enqueue_script( 'catchbox_slider', get_template_directory_uri() . '/js/catchbox_slider.js', array( 'jquery-cycle' ), '1.0', true );
 	}
-	
 	//Responsive Menu
 	wp_register_script('catchbox-menu', get_template_directory_uri() . '/js/catchbox-menu.min.js', array('jquery'), '1.1.0', true);
 	wp_register_script('catchbox-allmenu', get_template_directory_uri() . '/js/catchbox-allmenu-min.js', array('jquery'), '201301503', true);
-	
+	wp_register_script('homejs', get_template_directory_uri() . '/js/home.js', array('jquery'), '1.2', true);
 	//Check is secondayand footer menu is enable or not
 	$options = catchbox_get_theme_options();
 	if ( !empty ($options ['enable_menus'] ) ) :
@@ -879,6 +878,7 @@ function catchbox_scripts_method() {
 		wp_enqueue_script( 'catchbox-menu' );
 	endif;
 	
+	wp_enqueue_script( 'homejs' );
 	/**
 	 * Adds JavaScript to pages with the comment form to support
 	 * sites with threaded comments (when in use).
@@ -1274,13 +1274,7 @@ function catchbox_headerdetails() {
 	
 	echo '<div class="logo-wrap clearfix">';
 	
-	if ( $sitedetails == '0' ) {
-		echo catchbox_header_image();
-		echo catchbox_header_details();
-	} else {
-		echo catchbox_header_details();
-		echo catchbox_header_image();
-	}
+	echo '<div class="site-logo"><a href="index.php"><img src="'.get_template_directory_uri().'/images/bg_logo.png"></a></div>';
 	
 	echo '</div><!-- .logo-wrap -->';
 
@@ -1311,6 +1305,29 @@ endif; //catchbox_header_search
 
 // Loads Header Search in catchbox_headercontent hook
 add_action( 'catchbox_headercontent', 'catchbox_header_search', 15 ); 
+
+if ( ! function_exists( 'catchbox_headernav' ) ) :
+/**
+ * Header navigation bar 
+ *
+ * @since Catch Box 2.5
+ */
+function catchbox_headernav() {
+	
+	// Getting data from Theme Options
+	
+	echo '<ul class="nav-bar clearfix">';
+	echo '<li class="nav-item"><a href="#">OUR WORK</a></li>';
+	echo '<li class="nav-item"><a href="#">ABOUT US</a></li>';
+	echo '<li class="nav-item"><a href="#">ASKD3</a></li>';
+	echo '<li class="nav-item"><a href="#">BLOG</a></li>';
+	echo '</ul>';
+
+} 
+endif; //catchbox_headerdetails
+
+// Loads Header Details in catchbox_headercontent hook
+add_action( 'catchbox_headercontent', 'catchbox_headernav', 10 ); 
 
 
 if ( ! function_exists( 'catchbox_header_menu' ) ) :
@@ -1365,7 +1382,7 @@ function catchbox_header_menu() { ?>
 endif; //catchbox_header_menu
 
 // Load Header Menu in  catchbox_after_headercontent hook 
-add_action( 'catchbox_after_headercontent', 'catchbox_header_menu', 10 ); 
+// add_action( 'catchbox_after_headercontent', 'catchbox_header_menu', 10 ); 
 
 
 if ( ! function_exists( 'catchbox_footer_content' ) ) :
@@ -1378,14 +1395,9 @@ function catchbox_footer_content() { ?>
 	<div class="copyright">
 		<?php esc_attr_e('Copyright &copy;', 'catchbox'); ?> <?php _e(date('Y')); ?>
         <a href="<?php echo home_url('/') ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
-            <?php bloginfo('name'); ?>
+            Data Driven Detroit
         </a>
         <?php esc_attr_e('. All Rights Reserved.', 'catchbox'); ?>
-    </div>
-    <div class="powered">
-        <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'catchbox' ) ); ?>" title="<?php esc_attr_e( 'Powered by WordPress', 'catchbox' ); ?>" rel="generator"><?php printf( __( 'Powered by %s', 'catchbox' ), 'WordPress' ); ?></a>
-        <span class="sep"> | </span>
-        <a href="<?php echo esc_url( __( 'http://catchthemes.com/', 'catchbox' ) ); ?>" title="<?php esc_attr_e( 'Theme Catch Box by Catch Themes', 'catchbox' ); ?>" rel="designer"><?php printf( __( 'Theme: %s', 'catchbox' ), 'Catch Box' ); ?></a>
     </div>
 <?php }
 endif; //catchbox_footer_content
