@@ -869,7 +869,19 @@ function catchbox_scripts_method() {
 	//Responsive Menu
 	wp_register_script('catchbox-menu', get_template_directory_uri() . '/js/catchbox-menu.min.js', array('jquery'), '1.1.0', true);
 	wp_register_script('catchbox-allmenu', get_template_directory_uri() . '/js/catchbox-allmenu-min.js', array('jquery'), '201301503', true);
-	wp_register_script('homejs', get_template_directory_uri() . '/js/home.js', array('jquery'), '1.2', true);
+	if (is_home()){
+		wp_register_script('homejs', get_template_directory_uri() . '/js/home.js', array('jquery'), '1.2', true);
+		wp_enqueue_script( 'homejs' );
+		$wnm_custom = array( 'url' => get_bloginfo('template_url') );
+    	wp_localize_script( 'homejs', 'url', $wnm_custom );
+	}
+	if(is_page_template( 'faq.php' ) ){
+		wp_register_script('faqjs', get_template_directory_uri() . '/js/faq.js', array('jquery'), '1.1', true);
+		wp_register_script('jui', get_template_directory_uri() . '/js/jquery-ui.js', array('jquery'), '1.1', true);
+		wp_enqueue_script( 'faqjs' );
+		wp_enqueue_script( 'jui' );
+	}
+	
 	//Check is secondayand footer menu is enable or not
 	$options = catchbox_get_theme_options();
 	if ( !empty ($options ['enable_menus'] ) ) :
@@ -878,7 +890,8 @@ function catchbox_scripts_method() {
 		wp_enqueue_script( 'catchbox-menu' );
 	endif;
 	
-	wp_enqueue_script( 'homejs' );
+	
+	
 	/**
 	 * Adds JavaScript to pages with the comment form to support
 	 * sites with threaded comments (when in use).
@@ -1274,7 +1287,7 @@ function catchbox_headerdetails() {
 	
 	echo '<div class="logo-wrap clearfix">';
 	
-	echo '<div class="site-logo"><a href="index.php"><img src="'.get_template_directory_uri().'/images/bg_logo.png"></a></div>';
+	echo '<div class="site-logo"><a href="'.home_url().'"><img src="'.get_template_directory_uri().'/images/bg_logo.png"></a></div>';
 	
 	echo '</div><!-- .logo-wrap -->';
 
@@ -1319,7 +1332,7 @@ function catchbox_headernav() {
 	echo '<ul class="nav-bar clearfix">';
 	echo '<li class="nav-item"><a href="#">OUR WORK</a></li>';
 	echo '<li class="nav-item"><a href="#">ABOUT US</a></li>';
-	echo '<li class="nav-item"><a href="#">ASKD3</a></li>';
+	echo '<li class="nav-item"><a href="'.get_page_uri(get_page_by_title( 'FAQ' )->ID).'">ASKD3</a></li>';
 	echo '<li class="nav-item"><a href="#">BLOG</a></li>';
 	echo '</ul>';
 
