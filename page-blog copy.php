@@ -40,9 +40,9 @@ get_header(); ?>
 
 			if ( $blog_query->have_posts() ) : ?>
 
-				<!-- <header class="page-header">
+				<header class="page-header">
 					<h1 class="page-title"><?php the_title(); ?></h1>
-				</header> -->
+				</header>
 
 				<?php while ( $blog_query->have_posts() ) : $blog_query->the_post();  ?>
 

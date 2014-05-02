@@ -1333,7 +1333,7 @@ function catchbox_headernav() {
 	echo '<li class="nav-item"><a href="#">OUR WORK</a></li>';
 	echo '<li class="nav-item"><a href="#">ABOUT US</a></li>';
 	echo '<li class="nav-item"><a href="'.get_page_uri(get_page_by_title( 'FAQ' )->ID).'">ASKD3</a></li>';
-	echo '<li class="nav-item"><a href="#">BLOG</a></li>';
+	echo '<li class="nav-item"><a href="'.get_page_uri(get_page_by_title( 'BLOG' )->ID).'">BLOG</a></li>';
 	echo '</ul>';
 
 } 
