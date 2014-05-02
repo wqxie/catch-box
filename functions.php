@@ -372,7 +372,7 @@ if ( ! function_exists( 'catchbox_continue_reading_link' ) ) :
  * Returns a "Continue Reading" link for excerpts
  */
 function catchbox_continue_reading_link() {
-	return ' <a class="more-link" href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'catchbox' ) . '</a>';
+	return ' <a class="more-link" href="'. esc_url( get_permalink() ) . '">' . __( 'READ MORE <span class="meta-nav">&rarr;</span>', 'catchbox' ) . '</a>';
 }
 endif;
 
@@ -680,7 +680,7 @@ if ( ! function_exists( 'catchbox_posted_on' ) ) :
  * @since Catch Box 1.0
  */
 function catchbox_posted_on() {
-	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date updated" datetime="%3$s" pubdate>%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'catchbox' ),
+	printf( __( '<span class="sep">Posted on </span><time class="entry-date updated" datetime="%3$s" pubdate>%4$s</time>', 'catchbox' ),
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),

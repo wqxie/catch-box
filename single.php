@@ -10,21 +10,22 @@
 get_header(); ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
-
-					<nav id="nav-single">
-						<h3 class="assistive-text"><?php _e( 'Post navigation', 'catchbox' ); ?></h3>
-						<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Previous', 'catchbox' ) ); ?></span>
-						<span class="nav-next"><?php next_post_link( '%link', __( 'Next <span class="meta-nav">&rarr;</span>', 'catchbox' ) ); ?></span>
-					</nav><!-- #nav-single -->
+				<div class="single-page">
+					
 
 					<?php get_template_part( 'content', 'single' ); ?>
 
-					<?php comments_template( '', true ); ?>
 
 				<?php endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->
-        
+		<nav id="nav-blog">
+						<h3 class="assistive-text"><?php _e( 'Post navigation', 'catchbox' ); ?></h3>
+						<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Previous', 'catchbox' ) ); ?></span>
+						<?php echo '<span class="nav-blog-home"><a href="' .get_page_uri(get_page_by_title( 'BLOG' )->ID).'"">Blog Home</a></span>' ?>
+						<span class="nav-next"><?php next_post_link( '%link', __( 'Next <span class="meta-nav">&rarr;</span>', 'catchbox' ) ); ?></span>
+		</nav><!-- #nav-single -->
+        </div> 
 		<?php 
         /** 
          * catchbox_after_content hook
@@ -41,6 +42,5 @@ get_header(); ?>
      */
     do_action( 'catchbox_after_primary' ); ?>    
 
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

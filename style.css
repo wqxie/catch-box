@@ -1059,7 +1059,6 @@ img#wpstats {
 img[class*="align"],
 img[class*="wp-image-"],
 #content .gallery .gallery-icon img,
-img.wp-post-image,
 img.attachment-thumbnail{/* Add fancy borders to all WordPress-added images but not things like badges and icons and the like */
 	border: 1px solid #ccc;
 	padding: 6px;
@@ -5284,4 +5283,223 @@ body .ui-tooltip {
 }
 
 /* Customize blog single page style*/
+#primary{
+	background: white;
+}
+.single-page{
+	width: 100%;
+	height: auto;
+	padding: 0;
+	background: white;
+}
+.single-page-content{
+	margin: 40px 60px 40px 60px;
+}
+.single-title{
+	font-size: 20px;
+
+}
+#nav-blog{
+	width: 100%;
+	height: 20px;
+	margin-bottom: 40px;
+}
+#nav-blog .nav-previous{
+	float: left;
+	width: 20%;
+	margin-left: 10%;
+	
+}
+#nav-blog .nav-previous a{
+	color: rgb(246,188,45);
+}
+#nav-blog .nav-next{
+	float: right;
+	width: 20%;
+	margin-right: 10%;
+}
+#nav-blog .nav-next a{
+	color: #1982d1;
+}
+#nav-blog .nav-blog-home{
+	width: 20%;
+	float: left;
+	margin-left: 10%;
+	text-align: center;
+}
+#nav-blog .nav-blog-home a{
+	font-size: 14px;
+	color: black;
+}
+.single-blog-tag{
+	float: left;
+	font-size: 14px;
+	height: 20px;
+	padding: 3px 5px 3px 5px;
+	margin-right: 20px;
+	background:rgb(246,188,45);
+	border-radius: 2px;
+	margin-bottom: 20px;
+}
+.single-blog-tag a{
+	color: white;
+}
+
+/* Customize blog showcase page style*/
+.blog-page-featured{
+	width: 50%;
+	float: left;
+	margin: 20px 20px 20px 40px;
+}
+.blog-page-featured .title-featured{
+	background: rgb(121,178,223);
+	width: 100%;
+	height: 50px;
+	float: left;
+	color: white;
+	box-shadow: 2px 2px 5px 1px #888888;
+	font-weight: bold;
+}
+.blog-page-featured .title-featured p{
+	float: right;
+	margin: 10px 10px 10px auto;
+	font-size: 20px;
+}
+.blog-page-featured .blog-block{
+	float: left;
+	width: 96%;
+	margin-left: 2%;
+	background: white;
+	box-shadow: 2px 2px 5px 1px #888888;
+}
+
+.blog-page-featured  .featured-pic{
+	width: 100%;
+	float: left;
+	margin: 10px 1.3% 10px 1.3%;
+}
+.blog-page-featured .post-title a{
+	font-size: 16px;
+	margin-left: 20px;
+	float: left;
+	width: 97.4%;
+	color: black;
+}
+.blog-page-featured .tag-block{
+	float: left;
+	margin: 10px 20px 0px 20px;
+}
+.blog-page-featured .blog-tag{
+	float: left;
+	height: 20px;
+	padding: 0px 5px 4px 5px;
+	margin-right: 10px;
+	background:rgb(246,188,45);
+	border-radius: 2px;
+	margin-bottom: 10px;
+}
+.blog-page-featured .blog-tag a{
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 12px;
+	color: white;
+	width: 100%;
+}
+
+.blog-page-featured  .text-block{
+	float: left;
+	margin: 0px 20px 10px 20px;
+	font-size: 12px;
+	line-height: 20px;
+}
+.blog-page-featured  .text-block a{
+	margin-left: 0px;
+	background:rgb(121,178,223);
+	color: white;
+	padding: 0 5px 0 5px;
+	width: 90px;
+	font-size: 12px;
+	float: right;
+}
+
+
+.blog-page-normal{
+	width: 50%;
+	float: left;
+	margin: 20px 20px 10px 40px;
+	border-bottom: 1px solid black;
+	background: white;
+}
+.blog-page-normal .left-block{
+	float: left;
+	width: 30%;
+	margin: 10px 10px 10px 10px;
+}
+.blog-page-normal .left-block .post-time{
+	margin: 5px 0 20px 0;
+	width: 97.6%;
+	height: 40px;
+	color: white;
+	background: rgb(60,89,112);
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+.blog-page-normal .left-block .featured-pic{
+	width: 100%;
+	height: 30%;
+	margin: 0 0 0 0;
+}
+.blog-page-normal .right-block{
+	float: left;
+	width: 60%;
+	margin: 10px 10px 10px 10px;
+}
+.blog-page-normal .post-title a{
+	font-size: 16px;
+	margin-left: 20px;
+	float: left;
+	width: 97.4%;
+	color: black;
+}
+.blog-page-normal .tag-block{
+	float: left;
+	margin: 10px 20px 0px 20px;
+}
+.blog-page-normal .blog-tag{
+	float: left;
+	height: 20px;
+	padding: 0px 5px 4px 5px;
+	margin-right: 10px;
+	background:rgb(246,188,45);
+	border-radius: 2px;
+	margin-bottom: 10px;
+}
+.blog-page-normal .blog-tag a{
+	margin:0 5px 0 5px;
+	font-size: 12px;
+	color: white;
+	width: 100%;
+}
+
+.blog-page-normal  .text-block{
+	margin: 0px 20px 10px 20px;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: left;
+}
+.blog-page-normal  .text-block a{
+	float: right;
+	margin-left: 0px;
+	background:rgb(121,178,223);
+	color: white;
+	padding: 0 5px 0 5px;
+	width: 90px;
+	font-size: 12px;
+}
+
+
+
+
+
 

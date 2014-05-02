@@ -40,9 +40,7 @@ get_header(); ?>
 
 			if ( $blog_query->have_posts() ) : ?>
 
-				<!-- <header class="page-header">
-					<h1 class="page-title"><?php the_title(); ?></h1>
-				</header> -->
+				
 
 				<?php while ( $blog_query->have_posts() ) : $blog_query->the_post();  ?>
 
@@ -91,6 +89,5 @@ get_header(); ?>
      */
     do_action( 'catchbox_after_primary' ); ?>    
 
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
