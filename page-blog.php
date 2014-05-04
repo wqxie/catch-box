@@ -41,8 +41,8 @@ get_header(); ?>
 			if ( $blog_query->have_posts() ) : ?>
 
 				
-
-				<?php while ( $blog_query->have_posts() ) : $blog_query->the_post();  ?>
+				<?php $count = 0; ?>
+				<?php while ( $blog_query->have_posts() && $count<=2) : $blog_query->the_post();  ?>
 
 					<?php
 						/* Include the Post-Format-specific template for the content.
@@ -50,6 +50,7 @@ get_header(); ?>
 						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 						 */
 						get_template_part( 'content', get_post_format() );
+						$count ++; 
 					?>
 
 				<?php endwhile; ?>
