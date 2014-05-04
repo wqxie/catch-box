@@ -1332,8 +1332,8 @@ function catchbox_headernav() {
 	echo '<ul class="nav-bar clearfix">';
 	echo '<li class="nav-item"><a href="#">OUR WORK</a></li>';
 	echo '<li class="nav-item"><a href="#">ABOUT US</a></li>';
-	echo '<li class="nav-item"><a href="'.get_page_uri(get_page_by_title( 'FAQ' )->ID).'">ASKD3</a></li>';
-	echo '<li class="nav-item"><a href="'.get_page_uri(get_page_by_title( 'BLOG' )->ID).'">BLOG</a></li>';
+	echo '<li class="nav-item"><a href="'.get_permalink(get_page_by_title( 'FAQ' )->ID).'">ASKD3</a></li>';
+	echo '<li class="nav-item"><a href="'.get_permalink(get_page_by_title( 'BLOG' )->ID).'">BLOG</a></li>';
 	echo '</ul>';
 
 } 
@@ -1417,3 +1417,37 @@ endif; //catchbox_footer_content
 
 // Load footer content in  catchbox_site_generator hook 
 add_action( 'catchbox_site_generator', 'catchbox_footer_content', 15 );
+
+
+//Set post views data
+function getPostViews($postID){
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0 View";
+    }
+    return $count.' Views';
+}
+function setPostViews($postID) {
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }else{
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+
+//filter search results
+function SearchFilter($query) {
+if ($query->is_search) {
+$query->set('post_type', 'post');
+}
+return $query;
+}
+add_filter('pre_get_posts','SearchFilter');

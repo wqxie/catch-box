@@ -37,7 +37,12 @@ get_header(); ?>
 			$temp_query = $wp_query;
 			$wp_query = null;
 			$wp_query = $blog_query;
+			?>
 
+
+
+			<div class="left-blog-panel">
+			<?php
 			if ( $blog_query->have_posts() ) : ?>
 
 				
@@ -54,7 +59,41 @@ get_header(); ?>
 					?>
 
 				<?php endwhile; ?>
-                
+			</div><!-- end of left blog panel-->
+			<div class="right-blog-panel">
+				<div class="search-bar">
+					<div class="search-title"><p>Search</p></div>
+					<?php get_search_form(); ?>
+				</div>
+				<div class="cate-list">
+					<div class="cate-title"><p>Categories</p></div>
+					<?php wp_list_categories("style=none"); ?> 
+				</div>
+                <?php
+                	$popular_query = new WP_Query( array( 'meta_key' => 'post_views_count', 'orderby' => 'meta_value_num', "order" => 'DESC','ignore_sticky_posts' => '1'));
+					if ($popular_query->have_posts()) : $popular_query->the_post(); ?>
+					<article id="post-<?php the_ID(); ?>" class="blog-page-popular">
+					<header class="title-popular"><p>POPULAR</p></header>
+					<div class="popular-block">
+						<?php if( has_post_thumbnail() ):?>
+			            	<div class="popular-pic">
+			           		<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'catchbox' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+								<?php the_post_thumbnail('featured-slider'); ?>
+			               	</a>
+			               </div><!-- .featured-pic -->
+			            <?php endif; ?>
+			            <div class="post-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'catchbox' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></div>
+						<div class="tag-block">
+						<?php the_tags('<div class="blog-tag">','</div><div class="blog-tag">','</div>') ?> 
+						</div>	<!-- .tag-block -->
+						<div class="text-block"><?php the_excerpt(); ?></div><!-- .text-block -->	
+			       	 </div>	<!-- .blog-block -->
+			    </article><!-- #post-popular -->
+					<?php
+					 endif;
+					wp_reset_query();
+				?>
+			</div><!-- right blog panel -->
                 <?php catchbox_content_query_nav( 'nav-below' ); ?>
                 
 			<?php else : ?>
@@ -81,8 +120,6 @@ get_header(); ?>
          */
         do_action( 'catchbox_after_content' ); ?>
             
-	</div><!-- #primary -->
-    
 	<?php 
     /** 
      * catchbox_after_primary hook

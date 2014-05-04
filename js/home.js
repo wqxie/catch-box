@@ -6,6 +6,9 @@ function fade(a){
 	var tag ='<img id="home-pic" src="'+src_string+'">';
 	a.remove();
 	jQuery("#home-div").append(tag);
-	jQuery("#home-pic").fadeTo(1000,1);
+	jQuery("#home-pic").ready(function(){
+		jQuery("#home-pic").fadeTo(1000,1);
+	});
+
  
 };

@@ -8,12 +8,12 @@
  */
 
 get_header(); ?>
-
+			
 			<?php if ( have_posts() ) : ?>
-
-				<header class="page-header">
-					<h1 class="page-title"><?php
-						printf( __( 'Category Archives: %s', 'catchbox' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+			<div class="category-page-left">
+				<header class="category-header">
+					<h1 class="category-title"><?php
+						printf( __( '# %s', 'catchbox' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 					?></h1>
 
 					<?php
@@ -31,7 +31,7 @@ get_header(); ?>
 						 * If you want to overload this in a child theme then include a file
 						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 						 */
-						get_template_part( 'content', get_post_format() );
+						get_template_part( 'content', 'category' );
 					?>
 
 				<?php endwhile; ?>
@@ -45,7 +45,7 @@ get_header(); ?>
 						<h1 class="entry-title"><?php _e( 'Nothing Found', 'catchbox' ); ?></h1>
 					</header><!-- .entry-header -->
 
-					<div class="entry-content">
+					<div class="error-content">
 						<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'catchbox' ); ?></p>
 						<?php get_search_form(); ?>
 					</div><!-- .entry-content -->
@@ -53,8 +53,18 @@ get_header(); ?>
 
 			<?php endif; ?>
 
-		</div><!-- #content -->
-        
+        </div><!-- .category-page-left -->
+
+        <div class="category-page-right">
+        	<div class="search-bar">
+					<div class="search-title"><p>Search</p></div>
+					<?php get_search_form(); ?>
+				</div>
+			<div class="cate-list">
+				<div class="cate-title"><p>Categories</p></div>
+				<?php wp_list_categories("style=none"); ?> 
+			</div>
+        </div>
 		<?php 
         /** 
          * catchbox_after_content hook
@@ -71,6 +81,5 @@ get_header(); ?>
      */
     do_action( 'catchbox_after_primary' ); ?>    
 
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

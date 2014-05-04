@@ -11,7 +11,7 @@ get_header(); ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 				<div class="single-page">
-					
+					<?php setPostViews(get_the_ID()); ?>
 
 					<?php get_template_part( 'content', 'single' ); ?>
 
