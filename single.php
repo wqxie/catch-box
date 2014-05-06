@@ -25,7 +25,6 @@ get_header(); ?>
 						<?php echo '<span class="nav-blog-home"><a href="' .get_page_uri(get_page_by_title( 'BLOG' )->ID).'"">Blog Home</a></span>' ?>
 						<span class="nav-next"><?php next_post_link( '%link', __( 'Next <span class="meta-nav">&rarr;</span>', 'catchbox' ) ); ?></span>
 		</nav><!-- #nav-single -->
-        </div> 
 		<?php 
         /** 
          * catchbox_after_content hook

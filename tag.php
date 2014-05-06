@@ -11,8 +11,9 @@ get_header(); ?>
 
 			<?php if ( have_posts() ) : ?>
 
-				<header class="page-header">
-					<h1 class="page-title"><?php
+				<div class="category-page-left">
+				<header class="category-header">
+					<h1 class="category-title"><?php
 						printf( __( 'Tag Archives: %s', 'catchbox' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 					?></h1>
 
@@ -31,7 +32,7 @@ get_header(); ?>
 						 * If you want to overload this in a child theme then include a file
 						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 						 */
-						get_template_part( 'content', get_post_format() );
+						get_template_part( 'content', 'category' );
 					?>
 
 				<?php endwhile; ?>
@@ -52,8 +53,17 @@ get_header(); ?>
 				</article><!-- #post-0 -->
 
 			<?php endif; ?>
-
-		</div><!-- #content -->
+		</div>
+			<div class="category-page-right">
+        	<div class="search-bar">
+					<div class="search-title"><p>Search</p></div>
+					<?php get_search_form(); ?>
+				</div>
+			<div class="cate-list">
+				<div class="cate-title"><p>Categories</p></div>
+				<?php wp_list_categories("style=none"); ?> 
+			</div>
+        </div>
         
 		<?php 
         /** 
@@ -71,6 +81,5 @@ get_header(); ?>
      */
     do_action( 'catchbox_after_primary' ); ?>    
 
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
