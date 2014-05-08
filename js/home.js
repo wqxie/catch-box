@@ -9,6 +9,4 @@ function fade(a){
 	jQuery("#home-pic").ready(function(){
 		jQuery("#home-pic").fadeTo(1000,1);
 	});
-
- 
 };

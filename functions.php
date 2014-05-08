@@ -872,10 +872,10 @@ function catchbox_scripts_method() {
 
 	wp_register_script('catchbox-menu', get_template_directory_uri() . '/js/catchbox-menu.min.js', array('jquery'), '1.1.0', true);
 	wp_register_script('catchbox-allmenu', get_template_directory_uri() . '/js/catchbox-allmenu-min.js', array('jquery'), '201301503', true);
-	if (is_home()){
-		wp_register_script('homejs', get_template_directory_uri() . '/js/home.js', array('jquery'), '1.2', true);
-		wp_enqueue_script( 'homejs' );
-	}
+	// if (is_home()){
+	// 	wp_register_script('homejs', get_template_directory_uri() . '/js/home.js', array('jquery'), '1.2', true);
+	// 	wp_enqueue_script( 'homejs' );
+	// }
 	if(is_page_template( 'faq.php' ) ){
 		wp_register_script('faqjs', get_template_directory_uri() . '/js/faq.js', array('jquery'), '1.1', true);
 		wp_register_script('jui', get_template_directory_uri() . '/js/jquery-ui.js', array('jquery'), '1.1', true);

@@ -27,6 +27,11 @@
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<?php 
+	if (is_home()){
+		echo '<script type="text/javascript" src="'.get_template_directory_uri().'/js/home.js"></script>';
+	}
+?>
 <?php
 	/* Always have wp_head() just before the closing </head>
 	 * tag of your theme, or you will break many plugins, which
