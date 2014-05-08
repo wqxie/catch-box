@@ -867,13 +867,14 @@ function catchbox_scripts_method() {
 		wp_enqueue_script( 'catchbox_slider', get_template_directory_uri() . '/js/catchbox_slider.js', array( 'jquery-cycle' ), '1.0', true );
 	}
 	//Responsive Menu
+	wp_register_script('customjs', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0', true);
+	wp_enqueue_script( 'customjs' );
+
 	wp_register_script('catchbox-menu', get_template_directory_uri() . '/js/catchbox-menu.min.js', array('jquery'), '1.1.0', true);
 	wp_register_script('catchbox-allmenu', get_template_directory_uri() . '/js/catchbox-allmenu-min.js', array('jquery'), '201301503', true);
 	if (is_home()){
 		wp_register_script('homejs', get_template_directory_uri() . '/js/home.js', array('jquery'), '1.2', true);
 		wp_enqueue_script( 'homejs' );
-		$wnm_custom = array( 'url' => get_bloginfo('template_url') );
-    	wp_localize_script( 'homejs', 'url', $wnm_custom );
 	}
 	if(is_page_template( 'faq.php' ) ){
 		wp_register_script('faqjs', get_template_directory_uri() . '/js/faq.js', array('jquery'), '1.1', true);
@@ -1335,6 +1336,27 @@ function catchbox_headernav() {
 	echo '<li class="nav-item"><a href="'.get_permalink(get_page_by_title( 'FAQ' )->ID).'">ASKD3</a></li>';
 	echo '<li class="nav-item"><a href="'.get_permalink(get_page_by_title( 'BLOG' )->ID).'">BLOG</a></li>';
 	echo '</ul>';
+	echo '<form id="nav-select">';
+	echo '<select name="dropdpown" size="1" onChange="open_page(this.value)">';
+	$select_flag_home ='';
+	$select_flag_faq ='';
+	$select_flag_blog ='';
+	if(is_home()){
+		$select_flag_home = 'selected';
+	}
+	if(is_page(get_page_by_title( 'FAQ' )->ID)){
+		$select_flag_faq = 'selected';
+	}
+	if(is_page(get_page_by_title( 'BLOG' )->ID || is_single())){
+		$select_flag_blog = 'selected';
+	}
+    echo '<option value="'.home_url().'"'.$select_flag_home.'>HOME</option>';
+    echo '<option value="'.'#'.'">OUR WORK</option>';
+    echo '<option value="'.'#'.'">ABOUT US</option>';
+    echo '<option value="'.get_permalink(get_page_by_title( 'FAQ' )->ID).'"'.$select_flag_faq.'>ASKD3</option>'; 
+    echo '<option value="'.get_permalink(get_page_by_title( 'BLOG' )->ID).'"'.$select_flag_blog.'>BLOG</option>'; 
+    echo '</select>';
+    echo '</form>';
 
 } 
 endif; //catchbox_headerdetails
