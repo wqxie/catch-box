@@ -882,6 +882,18 @@ function catchbox_scripts_method() {
 		wp_enqueue_script( 'faqjs' );
 		wp_enqueue_script( 'jui' );
 	}
+	if(is_page_template( 'aboutus.php' ) ){
+		wp_register_script('aboutusjs', get_template_directory_uri() . '/js/aboutus.js', array('jquery'), '1.1', true);
+		wp_register_script('jui', get_template_directory_uri() . '/js/jquery-ui.js', array('jquery'), '1.1', true);
+		wp_enqueue_script( 'aboutusjs' );
+		wp_enqueue_script( 'jui' );
+	}
+	if(is_page_template( 'project.php' ) ||is_page_template( 'tool.php' )  ||is_page_template( 'presentation.php' )  ||is_page_template( 'report.php' )){
+		wp_register_script('projectjs', get_template_directory_uri() . '/js/project.js', array('jquery'), '1.1', true);
+		wp_register_script('jui', get_template_directory_uri() . '/js/jquery-ui.js', array('jquery'), '1.1', true);
+		wp_enqueue_script( 'projectjs' );
+		wp_enqueue_script( 'jui' );
+	}
 	
 	//Check is secondayand footer menu is enable or not
 	$options = catchbox_get_theme_options();
@@ -1331,8 +1343,8 @@ function catchbox_headernav() {
 	// Getting data from Theme Options
 	
 	echo '<ul class="nav-bar clearfix">';
-	echo '<li class="nav-item"><a href="#">OUR WORK</a></li>';
-	echo '<li class="nav-item"><a href="#">ABOUT US</a></li>';
+	echo '<li class="nav-item"><a href="#">OUR WORK</a><ul><li><a href="'.get_permalink(get_page_by_title( 'PROJECTS' )->ID).'">Projects</a></li><li><a href="'.get_permalink(get_page_by_title( 'TOOLS' )->ID).'">Tools</a></li><li><a href="'.get_permalink(get_page_by_title( 'MAPS' )->ID).'">Maps</a></li><li><a href="'.get_permalink(get_page_by_title( 'PRESENTATIONS' )->ID).'">Presentations</a></li><li><a href="'.get_permalink(get_page_by_title( 'REPORTS' )->ID).'">Reports/Publications</a></li></ul></li>';
+	echo '<li class="nav-item"><a href="'.get_permalink(get_page_by_title( 'ABOUTUS' )->ID).'">ABOUT US</a><ul class="about-nav"><li><a href="'.get_permalink(get_page_by_title( 'ABOUTUS' )->ID).'#mission-history">Mission & History</a></li><li><a href="'.get_permalink(get_page_by_title( 'ABOUTUS' )->ID).'#our-service">Our Services</a></li><li><a href="'.get_permalink(get_page_by_title( 'ABOUTUS' )->ID).'#d3-news">D3 in the News</a></li><li><a href="'.get_permalink(get_page_by_title( 'ABOUTUS' )->ID).'#contact-us">Contact Us</a></li></ul></li>';
 	echo '<li class="nav-item"><a href="'.get_permalink(get_page_by_title( 'FAQ' )->ID).'">ASKD3</a></li>';
 	echo '<li class="nav-item"><a href="'.get_permalink(get_page_by_title( 'BLOG' )->ID).'">BLOG</a></li>';
 	echo '</ul>';
@@ -1343,11 +1355,9 @@ function catchbox_headernav() {
 	$select_flag_blog ='';
 	if(is_home()){
 		$select_flag_home = 'selected';
-	}
-	if(is_page(get_page_by_title( 'FAQ' )->ID)){
+	}else if(is_page(get_page_by_title( 'FAQ' )->ID)){
 		$select_flag_faq = 'selected';
-	}
-	if(is_page(get_page_by_title( 'BLOG' )->ID || is_single())){
+	}else if(is_page(get_page_by_title( 'BLOG' )->ID) || is_single() ){
 		$select_flag_blog = 'selected';
 	}
     echo '<option value="'.home_url().'"'.$select_flag_home.'>HOME</option>';

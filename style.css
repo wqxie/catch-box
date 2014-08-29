@@ -680,6 +680,26 @@ a:hover {
 	color: #70BDF9;
 	text-decoration: none;
 }
+.nav-bar li ul{
+	display: none;
+	background-color: black;
+	padding: 10px;
+	position: absolute; 
+	top: 100%;
+	left: -50px;
+}
+.nav-bar li ul.about-nav{
+	left:90px;
+}
+.nav-bar li:hover ul{
+	display: block;
+}
+.nav-bar li ul li{
+	display: block;
+	margin: 0;
+	padding:10px;
+	font-size: 15px;
+}
 /* =Search Form
 ----------------------------------------------- */
 
@@ -2684,19 +2704,177 @@ img#wpstats {
 	top: 50%;
 	width: 100%;
 	height: 50%;
+	min-height: 240px;
 }
 .homepage-block .intro .intro-box{
 	float: left;
 	width: 25%;
 	height: 80%;
-	border-radius: 5px;
-	border:1px solid white;
-	background: rgba(200,200,200,0.4);
+	border-radius: 1px;
+	background: white;
 	margin-left: 6%;
 	color: #1982d1;
 }
-
-
+.homepage-block .intro .intro-box .intro-header{
+	width: 100%;
+	height: 30px;
+	color: white;
+	background-color: black;
+	text-transform: uppercase;
+	text-align: center;
+	padding-top: 3px;
+	font-size: 15px;
+	font-weight: bold;
+}
+.homepage-block .intro .intro-box .intro-content{
+	width: 100%;
+	height: calc(100% - 30px);
+	background-color: white;
+	overflow: hidden;
+}
+.homepage-block .intro .intro-box .intro-content .intro-project{
+	height: 50%;
+	overflow:  hidden;
+	border-bottom: 1px solid #cccccc;
+}
+.homepage-block .intro .intro-box .intro-content .calendar{
+	width: 60px;
+	height: 65px;
+	padding: 0;
+	margin: 10px;
+	float: left;
+	text-align: center;
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+	border-radius: 2px;
+}
+.homepage-block .intro .intro-box .calendar .calendar-month{
+	width: 60px;
+	height: 23px;
+	padding-top: 2px;
+	margin: 0;
+	background-color: rgb(0,0,0);
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	border-radius: 2px 2px 0 0;
+}
+.homepage-block .intro .intro-box .calendar .calendar-date{
+	width: 60px;
+	height: 36px;
+	padding-top: 4px;
+	margin: 0;
+	background-color: rgb(248,248,248);
+	font-size: 20px;
+	color: white;
+	vertical-align: middle;
+	text-align: center;
+	color: black;
+	border-radius: 0 0 2px 2px;
+}
+.homepage-block .intro .intro-box .intro-project .intro-project-info{
+	width: calc(100% - 100px);
+	float: left;
+	padding: 10px;
+}
+.homepage-block .intro .intro-box .intro-project .intro-project-info .intro-project-title{
+	font-size: 14px;
+	font-weight: 400;
+	color: black;
+	line-height: 18px;
+}
+.homepage-block .intro .intro-box .intro-project .intro-project-info .intro-project-summary{
+	font-size: 11px;
+	font-weight: 300;
+	line-height: 12px;
+	color: black;
+}
+.homepage-block .intro .intro-box .intro-service{
+	height: 25%;
+}
+.homepage-block .intro .intro-box .intro-dark{
+	background-color: #CCCCCC;
+	color: white;
+}
+.homepage-block .intro .intro-box .intro-white{
+	background-color: white;
+	color: black;
+}
+.homepage-block .intro .intro-box .intro-service .intro-service-pic{
+	margin: 8px;
+	float: left;
+}
+.homepage-block .intro .intro-box .intro-service .intro-service-pic img{
+	width: 35px;
+	height: 30px;
+}
+.homepage-block .intro .intro-box .intro-service .intro-service-content{
+	float: left;
+	width:  calc(100% - 60px);
+	padding-top: 10px;
+	font-size: 14px;
+	line-height: 15px;
+	font-weight: bold;
+}
+.homepage-block .intro .intro-box .intro-blog{
+	width: 100%;
+	float: left;
+	height: 50%;
+	overflow: hidden;
+	padding:0px;
+	border-bottom: 1px solid #cccccc;
+}
+.homepage-block .intro .intro-box .intro-blog .intro-blog-left{
+	width: 25%;
+	float: left;
+	text-align: center;
+	padding: 10px;
+}
+.homepage-block .intro .intro-box .intro-blog .intro-blog-left .intro-blog-pic img{
+	width: 80%;
+	margin: 0 auto;
+	float: left;
+}
+.homepage-block .intro .intro-box .intro-blog .intro-blog-left .calendar{
+	width: 50px;
+	height: 43px;
+	padding: 0;
+	margin: 10px auto;
+	float: left;
+}
+.homepage-block .intro .intro-box .intro-blog .intro-blog-left .calendar .calendar-month{
+	width: 50px;
+	height: 18px;
+	padding-top: 0;
+}
+.homepage-block .intro .intro-box .intro-blog .intro-blog-left .calendar .calendar-date{
+	width: 50px;
+	height: 25px;
+	padding-top: 0px;
+}
+.homepage-block .intro .intro-box .intro-blog .intro-blog-right{
+	width: 55%;
+	float: left;
+	text-align: left;
+	padding: 10px 10px;
+	height: 100%;
+	overflow: hidden;
+}
+.homepage-block .intro .intro-box .intro-blog .intro-blog-title{
+	font-size: 14px;
+	font-weight: 400;
+	color: black;
+	line-height: 18px;
+}
+.homepage-block .intro .intro-box .intro-blog .intro-blog-summary{
+	margin-top: 5px;
+	font-size: 11px;
+	font-weight: 300;
+	line-height: 12px;
+	color: black;
+}
 /* CSS */
 #interior, #interior_alt { 
 	background: white;
@@ -4876,11 +5054,12 @@ body .ui-tooltip {
 select[size="1"]{
 	width: 80%;
 	height: 30px;
-	font-size: 25px;
+	font-size: 20px;
 	-webkit-appearance: menulist;
 	align-items: center;
 	border-radius: 5px;
 	text-align: center;
+	background: white;
 }
 
 
@@ -5020,6 +5199,397 @@ select[size="1"]{
 .ui-helper-hidden-accessible{
 	display: hidden;
 }
+/*******About us Page********/
+.about-us{
+	width: 100%;
+	text-align: center;
+}
+.about-us .about-us-title{
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 30px auto 0px;
+}
+.about-us .about-us-box{
+	float: left;
+	width: 18%;
+	margin: 30px 15px;
+	background-color: #f6f6f6;
+	padding:20px;
+}
+.about-us .about-us-box .pic-round{
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	background-color: black;
+	margin: 10px auto 20px;
+	overflow: hidden;
+}
+
+.about-us-box-title{
+	font-size: 22px;
+	font-weight: bold;
+	letter-spacing: 0.02em;
+	margin: 0 auto 20px;
+}
+.about-us-content{
+	font-size: 12px;
+	font-weight: 300;
+	margin:10px auto 20px;
+	text-align: left;
+}
+.about-us-button{
+	text-align: left;
+	padding: 5px 20px;
+	font-size: 13px;
+	font-weight: 400;
+	color: white;
+	text-transform: uppercase;
+}
+.about-us-button a{
+	color: white;
+	text-decoration: none;
+}
+.about-us-button a:hover,
+.about-us-button a:active,
+.about-us-button a.active,
+{
+	color: white;
+	text-decoration: none;
+}
+.about-us-button-blue{
+	background-color: #00aeef;
+}
+.about-us-button-purple{
+	background-color: #ec008c;
+}
+.about-us-button-green{
+	background-color: #41ad49;
+}
+.about-us-button-orange{
+	background-color: rgb(246,188,46);
+}
+.about-us-button:after{
+	content: '';
+	background-image: url(images/arrow.png);
+    width: 10px;
+    height: 16px;
+    float: right;
+    margin: 3px -10px 0 10px;
+}
+.about-us-info{
+	float: left;
+	padding: 10px 50px;
+	text-align: left;
+}
+.about-us-info .service-img{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+}
+.about-us-info .service-img img{
+	width: 80%;
+	height: auto;
+	margin: 10px auto;
+	float: left;
+	text-align: center;
+}
+
+/******** About us page end*******/
+
+/******** Products page*******/
+.product{
+	float: left;
+	text-align: center;
+	padding: 20px;
+}
+.grey-search{
+	margin: 20px auto 20px 0px;
+	float: left;
+	width: 100%;
+}
+.grey-search input[type='text']{
+	float: left;
+	background-image: none;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-size: 14px;
+	font-weight: 400;
+	height: 30px;
+	line-height: 1.2em;
+	padding: 4px 10px 4px 10px;
+	background-color: #f6f6f6;
+	width: calc(100% - 20px);
+	border: none;
+	color: black;
+}
+#project-search::-webkit-input-placeholder {
+   color: black;
+   text-transform: uppercase;
+}
+
+#project-search:-moz-placeholder { /* Firefox 18- */
+   color: black;  
+   text-transform: uppercase;
+}
+
+#project-search::-moz-placeholder {  /* Firefox 19+ */
+   color: black;  
+   text-transform: uppercase;
+}
+
+#project-search:-ms-input-placeholder {  
+   color: black;  
+   text-transform: uppercase;
+}
+.project-panel{
+	width: 75%;
+	float: left;
+}
+.project-panel .project-box{
+	float: left;
+	width: 40%;
+}
+.project-panel .tool-box{
+	float: left;
+	width: 15%;
+}
+.project-panel .project-item{
+	margin: 20px 0;
+	width: 100%;
+	float: left;
+}
+.project-panel .project-title{
+	margin-left: 10px;
+	font-size: 15px;
+	text-align: left;
+	font-weight: bold;
+	line-height: 20px;
+}
+.project-panel .project-summary{
+	margin-left: 5px;
+	font-size: 10px;
+	text-align: left;
+	font-weight: 300;
+}
+.project-panel .project-img{
+	margin-left: 5px;
+	font-size: 10px;
+	text-align: left;
+	font-weight: 300;
+}
+.project-panel .project-img img{
+	width: 100px;
+	height: 80px;
+}
+.project-panel .tag-panel{
+	float: left;
+	width: 60%;
+	padding-top: 20px;
+}
+.project-panel .tool-tag-panel{
+	float: left;
+	width: 85%;
+	padding-top: 20px;
+}
+.project-panel .project-tag{
+	display: inline-block;
+	margin: 5px 10px;
+	padding: 2px 5px;
+	color: white;
+}
+.project-panel .presentation-box{
+	float: left;
+	width: 40%;
+}
+.project-panel .presentation-title{
+	margin-left: 10px;
+	font-size: 15px;
+	text-align: left;
+	font-weight: bold;
+	line-height: 20px;
+}
+.project-panel .calendar{
+	width: 60px;
+	height: 65px;
+	padding: 0;
+	margin-top: 5px;
+	float: left;
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+}
+.project-panel .calendar-month{
+	width: 60px;
+	height: 23px;
+	padding-top: 2px;
+	margin: 0;
+	background-color: rgb(248,248,248);
+	font-size: 14px;
+	font-weight: bold;
+}
+.project-panel .calendar-date{
+	width: 60px;
+	height: 36px;
+	padding-top: 4px;
+	margin: 0;
+	background-color: rgb(120,177,225);
+	font-size: 20px;
+	color: white;
+	vertical-align: middle;
+}
+.project-panel .presentation-summary{
+	float: left;
+	text-align: left;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.project-panel .report-box{
+	float: left;
+	width: 15%;
+}
+.project-panel .report-title{
+	margin-left: 10px;
+	font-size: 15px;
+	text-align: left;
+	font-weight: bold;
+	line-height: 20px;
+}
+.project-panel .report-tag-panel{
+	float: left;
+	width: 85%;
+	padding-top: 20px;
+}
+.project-panel .map-summary{
+	float: left;
+	text-align: left;
+	font-size: 12px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.geography-tag{
+	background-color: rgb(145,197,103);
+	width: 50%;
+}
+.topic-tag{
+	background-color: rgb(121,178,224);
+	width: 30%;
+}
+.partner-tag{
+	background-color: rgb(246,188,46);
+	width: 50%;
+}
+.projects-filter{
+	float: left;
+	width: 25%;
+}
+.projects-filter .project-filter-title{
+	text-align: center;
+	font-size: 20px;
+	font-weight: 400;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+.projects-filter .project-filter-title img{
+	width: 20px;
+	height: 10px;
+	margin-bottom: 3px;
+}
+.projects-filter .tag-filter{
+	margin: 5px 0;
+	float: left;
+	width: 100%;
+}
+.projects-filter .tag-filter .filter-item{
+	width: calc(100% - 10px);
+	height: 30px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 30px;
+	padding-left: 10px;
+	background-color: #f6f6f6;
+	text-align: left;
+	text-transform: uppercase;
+}
+.projects-filter .tag-filter .filter-item:after{
+	content: '';
+	background-image: url(images/arrow_black.png);
+    width: 8px;
+    height: 14px;
+    float: right;
+    margin: 9px 10px 0 10px;
+}
+.projects-filter .tag-filter .filter-item .filter-count{
+	display: none;
+	padding: 2px 10px;
+	margin: 10px;
+	background-color: rgb(121,178,224);
+	color:black;
+	border-radius: 5px;
+	border: none;
+}
+.projects-filter .tag-filter.active-tag .filter-item{
+	color: white;
+	background-color: rgb(121,178,224);
+}
+.projects-filter .tag-filter.active-tag .filter-item .filter-count{
+	background-color: white;
+	color:rgb(121,178,224);
+}
+.projects-filter .tag-filter.active-tag .filter-item:after{
+	content: '';
+	background-image: url(images/arrow_down.png);
+    width: 14px;
+    height: 8px;
+    float: right;
+    margin: 12px 10px 0 10px;
+}
+.projects-filter .tag-filter ul{
+	display: none;
+	list-style: none;
+	margin: 0;
+}
+.projects-filter .tag-filter ul  li{
+	list-style: none;
+	text-align: left;
+	margin:5px 10px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 30px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.projects-filter .tag-filter ul  .filter-selected{
+	color: rgb(121,178,224);
+}
+.projects-filter .tag-filter ul  .filter-selected:after{
+	content: '';
+	background-image: url(images/check.png);
+    width: 14px;
+    height: 11px;
+    float: right;
+    margin: 12px 1px 0 10px;
+}
+.clear-filter{
+	float: left;
+	width: calc(100% - 10px);
+	height: 30px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 30px;
+	padding-left: 10px;
+	background-color: black;
+	text-align: center;
+	color: white;
+	text-transform: uppercase;
+	margin-top: 10px;
+	cursor: pointer;
+}
+/******** Products page end*******/
+
 /* =Responsive Structure
 ----------------------------------------------- */
 
@@ -5418,6 +5988,7 @@ and (orientation : landscape) {
 		margin-left: 10%;
 		margin-top: 20px;
 	}
+
 	.homepage-block #home-div{
 		height: 580px;
 	}
